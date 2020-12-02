@@ -80,10 +80,17 @@ export const Styles = {
             color:#252525;
             width: 90%;
             text-align: center;
-            > a{
+            > button{
+                font-family: Ondo;
+                font-size:14px;
+                background: none;
+                border: none;
                 color:#6a75ff;
                 font-weight:600;
                 cursor:pointer;
+                &:focus{
+                    outline: none;
+                }
             }
             `,
         Submit:styled(motion.button)`

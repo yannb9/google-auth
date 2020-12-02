@@ -1,5 +1,6 @@
-import * as firebase from 'firebase';
-import 'firebase/firestore';
+import firebase from 'firebase'
+import 'firebase/auth'
+import 'firebase/app'
 
 const firebaseConfig = {
     apiKey: process.env.API_KEY,
@@ -12,7 +13,12 @@ const firebaseConfig = {
     measurementId: process.env.MESUREMENT_ID
   };
 
-firebase.initializeApp(firebaseConfig);
-firebase.firestore();
 
-export default firebase;
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+firebase.auth()
+
+export default {
+  firebaseConfig, 
+}

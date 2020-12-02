@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Styles} from '../StyledComp'
-import Login from '../Components/Login'
+import Signin from '../Components/Signin'
 import Register from '../Components/Register'
 import { ReactComponent as LoginImg } from '../svg/dev.svg';
 
@@ -23,12 +23,12 @@ export default class Auth extends Component {
                 <Right className="Right">
                     {this.state.isLoggedIn ? 
                     <>
-                        <Login /> 
-                        <Text>Not a member?<a href='/#' onClick={this.updateAuth}>Sign Up</a></Text>
+                        <Signin /> 
+                        <Text>Not a member?<button onClick={this.updateAuth}>Sign Up</button></Text>
                     </> : 
                     <>
                         <Register />
-                        <Text>Already a member?<a href='/#' onClick={this.updateAuth}>Sign In</a></Text>
+                        <Text>Already a member?<button onClick={this.updateAuth}>Sign In</button></Text>
                     </>
                     }
                 </Right>

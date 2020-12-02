@@ -1,14 +1,22 @@
 import React,{Component} from 'react';
 import {Styles} from '../StyledComp'
 import {GoogleButton} from '../Components/GoogleButton'
+import { auth } from "../firebase"
 
 export default class Register extends Component {
     state = { 
         name:'',
         email: '',
         password:'',
-        confirmed:''
+        confirmed:'',
+        error:''
         
+     }
+
+     registerUser(email, password){
+         return new Promise((res, rej)=>{
+             res(auth.createUserWithEmailAndPassword(email, password))
+         })
      }
 
      handleChange = (ev) =>{
@@ -17,11 +25,31 @@ export default class Register extends Component {
             })
      }
 
+     handleSubmit = (ev) =>{
+         ev.preventDefault();
+         if(this.state.password === this.state.confirmed){
+             try {
+            this.registerUser(this.state.email, this.state.password)
+              .then()
+             } catch (error) {
+                 throw error;
+             }
+             
+         } else{
+             throw 'Please make sure your Password and Confirm Password are the same'
+         }
+    }
+
+    handleSubmit(ev){
+        ev.preventDefault();
+        console.log(ev)
+    }
+
     render() { 
-        const {Right, Form, H2, Input, Terms, Submit, Text} = Styles.Authintication;
+        const {Right, Form, H2, Input, Terms, Submit} = Styles.Authintication;
         return (  
                 <Right className="Right">
-                    <Form>
+                    <Form onSubmit={this.handleSubmit}>
                         <H2>Login</H2>
                         <GoogleButton />
                         <Input
@@ -50,7 +78,7 @@ export default class Register extends Component {
 
                         <Input
                             type="password"
-                            name="confirm"
+                            name="confirmed"
                             placeholder="Confirm Password"
                             value={this.state.confirmed}
                             onChange={this.handleChange}

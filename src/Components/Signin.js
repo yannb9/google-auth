@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 import {Styles} from '../StyledComp'
-import {GoogleButton} from '../Components/GoogleButton'
+import {GoogleButton} from './GoogleButton'
 
-export default class Login extends Component {
+export default class Signin extends Component {
     state = { 
         name:'',
         email: '',
@@ -16,10 +16,15 @@ export default class Login extends Component {
             })
      }
 
+     handleSubmit = (ev) =>{
+       ev.preventDefault();
+       console.log(ev)
+   }
+
     render() { 
         const {Form, H2, Input, Terms, Submit} = Styles.Authintication;
         return (  
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
                 <H2>Login</H2>
                 <GoogleButton />
                 <Input
