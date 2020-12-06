@@ -1,52 +1,12 @@
-import React,{Component} from 'react';
-import {Styles} from '../StyledComp'
-import {GoogleButton} from '../Components/GoogleButton'
-import fireauth from "../firebase"
+import React from 'react'
+import { ReactComponent as LoginImg } from '../svg/dev.svg';
 
-export default class Register extends Component {
-    state = { 
-        name:'',
-        email: '',
-        password:'',
-        confirmed:'',
-        error:''
-        
-     }
-
-    //  registerUser(email, password){
-    //      return new Promise((res, rej)=>{
-    //          res(fireauth.auth().createUserWithEmailAndPassword(email, password))
-    //      })
-    //  }
-
-     handleChange = (ev) =>{
-         this.setState({
-             [ev.target.name]: ev.target.value
-            })
-     }
-
-     handleSubmit = (ev) =>{
-         ev.preventDefault();
-         if(this.state.password === this.state.confirmed){
-             fireauth.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then(user=>console.log(user));
-            //  try {
-            //  } catch (error) {
-            //      throw error;
-            //  }
-             
-         } else{
-             throw {err:'Please make sure your Password and Confirm Password are the same'}
-         }
-    }
-
-    handleSubmit(ev){
-        ev.preventDefault();
-        console.log(ev)
-    }
-
-    render() { 
-        const {Right, Form, H2, Input, Terms, Submit} = Styles.Authintication;
-        return (  
+export default function SignUp() {
+    const {Auth, Left, Right, Text} = Styles.Authintication;
+    return (
+        <>
+            <Auth className="Auth">
+                <Left className="Left"><LoginImg /></Left>
                 <Right className="Right">
                     <Form onSubmit={this.handleSubmit}>
                         <H2>Login</H2>
@@ -91,6 +51,7 @@ export default class Register extends Component {
                         >Register</Submit>
                     </Form>
                 </Right>
-        );
-    }
+            </Auth>
+        </>
+    )
 }
