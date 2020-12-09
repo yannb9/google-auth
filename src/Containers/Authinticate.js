@@ -11,18 +11,18 @@ export default function Authinticate() {
         <Auth className="Auth">
         <Left className="Left"><LoginImg /></Left>
         <Right className="Right">
-            <Signup />
-            <Text>Already a member?<button>Sign In</button></Text>
-            {/* {signIn ? 
+            {/* <Signup />
+            <Text>Already a member?<button onClick={()=>setSignin(!signIn)}>Sign In</button></Text> */}
+            {signIn ? 
             <>
                 <Signin /> 
-                <Text>Not a member?<button onClick={setSignin(!signIn)}>Sign Up</button></Text>
+                <Text>Not a member?<button onClick={()=>setSignin(!signIn)}>Sign Up</button></Text>
             </> : 
             <>
                 <Signup />
-                <Text>Already a member?<button onClick={setSignin(!signIn)}>Sign In</button></Text>
+                <Text>Already a member?<button onClick={()=>setSignin(!signIn)}>Sign In</button></Text>
             </>
-            } */}
+            }
         </Right>
     </Auth>
     )
