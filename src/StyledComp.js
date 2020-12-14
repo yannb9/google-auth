@@ -42,6 +42,7 @@ export const Styles = {
             `,
 
         Form:styled.form`
+        width:450px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -50,7 +51,8 @@ export const Styles = {
 
         Input:styled.input`
             font-family: Ondo;
-            width: 350px;
+            // width: 350px;
+            width:90%;
             height: 50px;
             background: #f8f9fb;
             padding: 0 0 0 40px;
@@ -113,6 +115,18 @@ export const Styles = {
             &:focus{
                 outline:none;
             }
+        `,
+        Error:styled(motion.span)`
+            width: 100%;
+            height:50px;
+            font-family: Ondo;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border-radius: 5px;
+            background: #ff9b93;
+            color: #ff4646;
+            opacity:0;
         `
     },
     Google:{
@@ -120,7 +134,7 @@ export const Styles = {
             font-family: Ondo;
             width: 100%;
             height: 50px;
-            margin-bottom: 20px;
+            margin: 20px 0;
             border: none;
             padding: 10px;
             display: flex;

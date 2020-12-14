@@ -1,14 +1,15 @@
 import './App.css';
 import Authinticate from './Containers/Authinticate';
-import Signup from './Components/Signup'
+import { AuthProvider } from './Contexts/AuthContext';
 
 
 const App = () =>{
-
+  
     return(
-      <div className="App">
+      <AuthProvider className="App">
         <Authinticate />
-      </div>
+        <Authinticate />
+      </AuthProvider>
     );
 };
 

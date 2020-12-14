@@ -3,27 +3,22 @@ import { Styles } from '../StyledComp'
 import { useAuth } from '../Contexts/AuthContext'
 import {GoogleButton} from '../Components/GoogleButton'
 
-export default function Signup() {
-    const nameRef = useRef();
+export default function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
-    const passwordConfirmRef = useRef();
     const [error, setError] = useState('');
     const [loading,setLoading] = useState(false)
-    const { signup } = useAuth()
-    const {H2, Form, Input, Terms, Submit, Error} = Styles.Authintication;
+    const { login } = useAuth()
+    const {H2, Form, Input, Submit, Error} = Styles.Authintication;
 
     async function handleSubmit(ev) {
         ev.preventDefault();
-        if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-            return setError('Passwords do not match')
-        }
         try {
             setError('')
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
+            await login(emailRef.current.value, passwordRef.current.value)
         } catch (error) {
-            return setError(error)
+            return setError('Failed to Login')
         }
 
         setLoading(false)
@@ -31,16 +26,9 @@ export default function Signup() {
     
     return (
         <Form onSubmit={handleSubmit}>
-            <H2>Signup</H2>
+            <H2>Login</H2>
             {error && <Error animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>{error}</Error>}
             <GoogleButton />
-            <Input
-                type="text" 
-                name="name"
-                placeholder="Full Name"
-                ref={nameRef}
-                required
-            />
 
             <Input
                 type="email"
@@ -58,21 +46,13 @@ export default function Signup() {
                 required
             />
 
-            <Input
-                type="password"
-                name="confirmed"
-                placeholder="Confirm Password"
-                ref={passwordConfirmRef}
-                required
-            />
-            <Terms>You are agreeing to the <a href="/#">Terms of Service</a> and <a href="/#">Privacy Policy</a></Terms>
             <Submit
                 disabled={loading}
                 whileHover={{
                     backgroundColor:'#7983f9',
                     translateY: -3,
                 }}
-            >Register</Submit>
+            >Login</Submit>
         </Form>
     )
 }

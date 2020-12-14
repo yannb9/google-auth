@@ -1,17 +1,15 @@
-import React,{Component} from 'react';
-import {Styles} from '../StyledComp'
+import React from 'react'
+import { useAuth } from '../Contexts/AuthContext';
 
-export default class Dashboard extends Component {
-    state = { 
-        name:'',
-        email: '',
-        password:''
+export default function Dashboard() {
+    function handleLogout(){
         
-     }
-
-    render() { 
-        return (
-            <div>hello</div>
-        );
     }
+    const { currentUser } = useAuth();
+    return (
+        <div>
+            {currentUser && currentUser.email}
+            <button onClick={handleLogout}>Logout</button>
+        </div>
+    )
 }
