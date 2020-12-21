@@ -4,7 +4,6 @@ import { useAuth } from '../Contexts/AuthContext'
 import {GoogleButton} from '../Components/GoogleButton'
 // import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 
-
 export default function ForgotPassword() {
     const emailRef = useRef();
     const [error, setError] = useState('');
@@ -32,8 +31,6 @@ export default function ForgotPassword() {
         <Form onSubmit={handleSubmit}>
             <H2>Reset Password</H2>
             {error && <Error animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>{error}</Error>}
-            <GoogleButton />
-
             <Input
                 type="email"
                 name="email"

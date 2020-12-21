@@ -42,7 +42,7 @@ export const Styles = {
             `,
 
         Form:styled.form`
-        width:450px;
+            width:350px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -96,14 +96,7 @@ export const Styles = {
             }
             `,
         Submit:styled(motion.button)`
-            width: 95%;
-            height: 50px;
-            font-family: Ondo;
-            border-radius: 5px;
-            border: none;
-            background:#6a75ff;
-            color:#fff;
-            width: 95%;
+            width: 100%;
             height: 50px;
             font-family: Ondo;
             border-radius: 5px;
