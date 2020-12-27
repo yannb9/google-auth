@@ -1,8 +1,6 @@
 import React, {useRef, useState} from 'react'
 import { Styles } from '../StyledComp'
 import { useAuth } from '../Contexts/AuthContext'
-import {GoogleButton} from '../Components/GoogleButton'
-// import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 
 export default function ForgotPassword() {
     const emailRef = useRef();
@@ -10,7 +8,7 @@ export default function ForgotPassword() {
     const [message, setMessage] = useState('')
     const [loading,setLoading] = useState(false)
     const { resetPassword } = useAuth()
-    const {H2, Form, Input, Submit, Error} = Styles.Authintication;
+    const {H2, Form, Input, Submit, Error, SuccessMessage} = Styles.Authintication;
 
     async function handleSubmit(ev) {
         ev.preventDefault();
@@ -31,6 +29,7 @@ export default function ForgotPassword() {
         <Form onSubmit={handleSubmit}>
             <H2>Reset Password</H2>
             {error && <Error animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>{error}</Error>}
+            {message && <SuccessMessage animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>{message}</SuccessMessage>}
             <Input
                 type="email"
                 name="email"

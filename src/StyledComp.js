@@ -120,6 +120,19 @@ export const Styles = {
             background: #ff9b93;
             color: #ff4646;
             opacity:0;
+        `,
+
+        SuccessMessage:styled(motion.span)`
+            width: 100%;
+            height:50px;
+            font-family: Ondo;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border-radius: 5px;
+            background: #99f3bd;
+            color: #28df99;
+            opacity:0;
         `
     },
     Google:{

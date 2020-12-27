@@ -40,7 +40,7 @@ export default function Authinticate() {
                     (
                         <>
                             <ForgotPassword className="Forgot_Password"/>
-                            <Text><button onClick={()=>setLoginPage(2)}>Sign In</button></Text>
+                            <Text><button onClick={()=>setLoginPage(1)}>Sign In</button></Text>
                         </>
                     )
                     }
