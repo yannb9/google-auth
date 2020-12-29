@@ -45,16 +45,16 @@ export default function Dashboard() {
 //         Promise.all(promises).then(()=>console.log(props)).catch(err=>setError('Failed to update account!')).finally(()=>setLoading(false))
 //     }
 
-    writeUserData = () => {
-        Firebase.database().ref('/').set({name:'Yann', Groceries:['banana, milk, apples']});
-      }
+    // writeUserData = () => {
+    //     Firebase.database().ref('/').set({name:'Yann', Groceries:['banana, milk, apples']});
+    //   }
 
     return (
         <div>
             {error && <Error>${error}</Error>}
             {currentUser && currentUser.email}
             {/* <button onClick={handleLogout}>Logout</button> */}
-            <button onClick={writeUserData}>Try me</button>
+            {/* <button onClick={writeUserData}>Try me</button> */}
         </div>
     )
 }
