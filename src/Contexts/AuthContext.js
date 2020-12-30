@@ -1,5 +1,5 @@
 import React, {useContext, useState, useEffect} from 'react'
-import {  auth, db } from '../firebase'
+import fbase, {  auth  } from '../firebase'
 
 const AuthContext = React.createContext();
 
@@ -34,6 +34,11 @@ export function AuthProvider({children}) {
         return currentUser.updatePassword(password)
     }
 
+    function addToFirebaseDB(object){
+        return fbase.database().ref('groceries').push(object)
+
+    }
+
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user=>{setCurrentUser(user);setLoading(false);})
         return unsubscribe
@@ -46,7 +51,8 @@ export function AuthProvider({children}) {
         logout,
         resetPassword,
         updateEmail,
-        updatePassword
+        updatePassword,
+        addToFirebaseDB
     }
 
     return (

@@ -1,19 +1,17 @@
-import firebase from 'firebase/app'
+import firebase from 'firebase'
 import 'firebase/auth'
 
 const fbase = firebase.initializeApp({
-  apiKey: "AIzaSyA8a8Xq8ofA3jVIvumypErRfrqr9OgO03o",
-  authDomain: "auth-development-e4ae6.firebaseapp.com",
-  projectId: "auth-development-e4ae6",
-  storageBucket: "auth-development-e4ae6.appspot.com",
-  messagingSenderId: "1026530592068",
-  appId: "1:1026530592068:web:2ef4a339a32fe62b068311",
-  measurementId: "G-045RRH3N9Y"
+  apiKey: "AIzaSyAg8mJ_COFiY7jZ_N8a0R8G5pAf-zLLFxY",
+  authDomain: "auth-development-2.firebaseapp.com",
+  projectId: "auth-development-2",
+  storageBucket: "auth-development-2.appspot.com",
+  messagingSenderId: "27804168869",
+  appId: "1:27804168869:web:aa0eee137eb872812d934c"
 });
 
 
 // Initialize Firebase
 export const auth = fbase.auth();
-export const db = firebase.database();
 export default fbase;
 
