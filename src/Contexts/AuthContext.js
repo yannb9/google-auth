@@ -35,7 +35,7 @@ export function AuthProvider({children}) {
     }
 
     function addToFirebaseDB(object){
-        return fbase.database().ref('groceries').push(object)
+        return fbase.database().ref('GRObject').push(object)
 
     }
 
